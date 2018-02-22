@@ -1,7 +1,8 @@
 import React from 'react';
 
-export const getPokemonTypes = () => {
-  fetch('poke-api/types').then(response => response.json())
-    .then(json => console.log(json));
+export const getPokemonTypes = async () => {
+  const response = await fetch('http://localhost:3001/types')
+  const json = await response.json();
+  console.log(json)
 
 }
