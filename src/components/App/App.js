@@ -39,7 +39,7 @@ App.propTypes = {
   addPokeTypes: func.isRequired
 };
 
-const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });
+export const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });
 
 export const mapDispatchToProps = dispatch => ({ 
   addPokeTypes: pokeTypes => dispatch(addTypes(pokeTypes)) 
