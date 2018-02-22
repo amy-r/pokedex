@@ -18,9 +18,14 @@ constructor() {
 // display pokemon types in connected components
 
   componentDidMount = async () => {
-    const pokeTypes = await getPokemonTypes();
-    // console.log(this.props)
-    this.props.addPokeTypes(pokeTypes);
+    this.addPoke();
+  }
+
+  addPoke = async () => {
+    const response = await fetch('http://localhost:3001/types')
+    const json = await response.json();
+    console.log(json)
+    this.props.addPokeTypes(json); 
   }
 
   render() {
