@@ -10,12 +10,11 @@ export class CardContainer extends Component {
 
   render() {
 
-  if(this.props.loading) {
-    return <img src = { Loading }/>
-  }
+  // if(this.props.loading) {
+  //   return <img src = { Loading }/>
+  // }
 
-  else {
-    const cards = this.props.pokeTypes.map( (obj) => {
+  const cards = this.props.pokeTypes.map( (obj) => {
     console.log(obj.name)
     return <Card name= {obj.name}/>
   })
@@ -28,7 +27,7 @@ export class CardContainer extends Component {
     );
   }
 }
-}
+
 // CardContainer.propTypes = {
 //   fake: shape({ fake: string }),
 //   fakeAction: func.isRequired

@@ -6,15 +6,25 @@ import { shallow, mount } from 'enzyme';
 
 describe('App', () => {
   it('matches the Snapshot', () => {
-    const app = renderer.create(<App />).toJSON();
+    const app = shallow(<App />, { disableLifecycleMethods: true})
     expect(app).toMatchSnapshot();
   })
 
-  it.skip('calls addPokeTypes', () => {
-    const addPokeTypes = jest.fn()
-    const wrapper = mount(<App />)
-    expect(addPokeTypes.mock.calls.length).toBe(1)
+  // it('calls addPokeTypes', () => {
+  //   const addPokeTypes = jest.fn()
+  //   const wrapper = shallow(<App />)
+  //   expect(addPokeTypes)
+  // })
+
+
+})
+
+describe('addPokeTypes', () => {
+
+  it('calls fetch', () => {
+    const shallow = mount(<App />, {disableLifecycleMethods: true})
+    window.fetch = jest.fn();
+    app.addPokeTypes();
+    expect(window.fetch).toHaveBeenCalled();
   })
-
-
 })
