@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes, { shape, func, string } from 'prop-types';
 import './App.css';
 import FakeContainer from '../../containers/FakeContainer/'
 import { connect } from 'react-redux';
 import { addTypes } from '../../actions';
+import CardContainer from '../../containers/CardContainer/CardContainer'
 
 
 class App extends Component {
@@ -18,12 +20,12 @@ constructor() {
 
   componentDidMount = async () => {
     this.addPokeTypes();
+    // console.log(this.props)
   }
 
   addPokeTypes = async () => {
     const response = await fetch('http://localhost:3001/types')
     const json = await response.json();
-    console.log(json)
     this.props.addPokeTypes(json); 
   }
 
@@ -31,17 +33,22 @@ constructor() {
     return (
       <div className='App'>
         <h1 className='header'> POKéDEX </h1>
+        <CardContainer />
         <FakeContainer />
       </div>
     );
   }
 }
 
+App.propTypes = {
+  pokeTypes: shape({ fake: string }),
+  addPokeTypes: func.isRequired
+};
 
-// const mapStateToProps = ({ type }) => ({ type });
+const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });
 
 export const mapDispatchToProps = dispatch => ({ 
   addPokeTypes: pokeTypes => dispatch(addTypes(pokeTypes)) 
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
