@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import FakeContainer from '../../containers/FakeContainer/'
-import { getPokemonTypes } from '../../helper.js';
 import { connect } from 'react-redux';
 import { addTypes } from '../../actions';
 
@@ -18,10 +17,10 @@ constructor() {
 // display pokemon types in connected components
 
   componentDidMount = async () => {
-    this.addPoke();
+    this.addPokeTypes();
   }
 
-  addPoke = async () => {
+  addPokeTypes = async () => {
     const response = await fetch('http://localhost:3001/types')
     const json = await response.json();
     console.log(json)
