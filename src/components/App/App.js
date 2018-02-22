@@ -30,8 +30,8 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  pokeTypes: shape({ fake: string }),
-  addPokeTypes: func.isRequired
+  pokeTypes: shape([{ id: string }]),
+  addPokeTypes: func
 };
 
 export const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });

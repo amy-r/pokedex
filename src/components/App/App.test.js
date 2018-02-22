@@ -19,12 +19,3 @@ describe('App', () => {
 
 })
 
-describe('addPokeTypes', () => {
-
-  it('calls fetch', () => {
-    const shallow = mount(<App />, {disableLifecycleMethods: true})
-    window.fetch = jest.fn();
-    app.addPokeTypes();
-    expect(window.fetch).toHaveBeenCalled();
-  })
-})
