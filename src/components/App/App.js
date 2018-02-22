@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import FakeContainer from '../../containers/FakeContainer/'
-import { getPokemonTypes } from '../../helper.js';
 import { connect } from 'react-redux';
-import { addType } from '../../actions';
+import { addTypes } from '../../actions';
 
 
 class App extends Component {
@@ -18,9 +17,14 @@ constructor() {
 // display pokemon types in connected components
 
   componentDidMount = async () => {
-    const pokeTypes = await getPokemonTypes();
-    console.log(this.props)
-    // this.props.addTypes(pokeTypes);
+    this.addPokeTypes();
+  }
+
+  addPokeTypes = async () => {
+    const response = await fetch('http://localhost:3001/types')
+    const json = await response.json();
+    console.log(json)
+    this.props.addPokeTypes(json); 
   }
 
   render() {
@@ -36,8 +40,8 @@ constructor() {
 
 // const mapStateToProps = ({ type }) => ({ type });
 
-const mapDispatchToProps = dispatch => (
-  { addTypes: (pokeTypes) => dispatch(addTypes(pokeTypes)) }
-);
+export const mapDispatchToProps = dispatch => ({ 
+  addPokeTypes: pokeTypes => dispatch(addTypes(pokeTypes)) 
+});
 
 export default connect(null, mapDispatchToProps)(App);

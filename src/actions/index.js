@@ -1,6 +1,6 @@
 export const fakeAction = () => ({ type: 'FAKE'})
 
 export const addTypes = (pokeTypes) =>  ({
-  types: 'ADD_TYPES',
+  type: 'ADD_TYPES',
   pokeTypes
 })

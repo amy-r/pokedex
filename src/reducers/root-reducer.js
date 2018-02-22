@@ -3,7 +3,7 @@ import fakeReducer from './fake-reducer'
 import typesReducer from './type-reducer'
 
 const rootReducer = combineReducers({
-  types: typesReducer,
+  pokeTypes: typesReducer,
   fake: fakeReducer
 })
 
