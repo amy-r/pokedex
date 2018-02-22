@@ -5,6 +5,7 @@ import FakeContainer from '../../containers/FakeContainer/'
 import { connect } from 'react-redux';
 import { addTypes } from '../../actions';
 import CardContainer from '../../containers/CardContainer/CardContainer'
+import fetchPokeTypes from '../../helper.js'
 
 
 export class App extends Component {
@@ -14,14 +15,8 @@ export class App extends Component {
   }
 
   componentDidMount = async () => {
-    this.addPokeTypes();
-    // console.log(this.props)
-  }
-
-  addPokeTypes = async () => {
-    const response = await fetch('http://localhost:3001/types')
-    const json = await response.json();
-    this.props.addPokeTypes(json); 
+    const json = await fetchPokeTypes();
+    this.props.addPokeTypes(json)
   }
 
   render() {
@@ -39,7 +34,7 @@ App.propTypes = {
   addPokeTypes: func.isRequired
 };
 
-const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });
+export const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });
 
 export const mapDispatchToProps = dispatch => ({ 
   addPokeTypes: pokeTypes => dispatch(addTypes(pokeTypes)) 
