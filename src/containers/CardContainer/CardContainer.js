@@ -28,13 +28,11 @@ export class CardContainer extends Component {
   }
 }
 
-// CardContainer.propTypes = {
-//   fake: shape({ fake: string }),
-//   fakeAction: func.isRequired
-// };
+CardContainer.propTypes = {
+  pokeTypes: PropTypes.array
+};
 
 const mapStateToProps = ({ pokeTypes }) => ({ pokeTypes });
-// const mapDispatchToProps = dispatch => ({ fakeAction:
-//   () => dispatch(fakeAction())
-// });
+
+
 export default connect(mapStateToProps, null)(CardContainer);
