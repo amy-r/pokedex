@@ -20,7 +20,7 @@ constructor() {
 
   componentDidMount = async () => {
     this.addPokeTypes();
-    console.log(this.props)
+    // console.log(this.props)
   }
 
   addPokeTypes = async () => {
@@ -33,7 +33,7 @@ constructor() {
     return (
       <div className='App'>
         <h1 className='header'> POKéDEX </h1>
-        <CardContainer pokeTypes='this.props.pokeTypes' />
+        <CardContainer />
         <FakeContainer />
       </div>
     );
