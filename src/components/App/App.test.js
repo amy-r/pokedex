@@ -10,12 +10,8 @@ describe('App', () => {
     expect(app).toMatchSnapshot();
   })
 
-  // it('calls addPokeTypes', () => {
-  //   const addPokeTypes = jest.fn()
-  //   const wrapper = shallow(<App />)
-  //   expect(addPokeTypes)
-  // })
-
+//it should have MSTP and MDTP defining props
 
 })
+
 

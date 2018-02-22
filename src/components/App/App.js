@@ -30,7 +30,7 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  pokeTypes: shape([{ id: string }]),
+  pokeTypes: PropTypes.array,
   addPokeTypes: func
 };
 

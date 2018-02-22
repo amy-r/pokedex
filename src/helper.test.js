@@ -10,23 +10,17 @@ let mockData;
   })
 
   it('returns an array of objects', () => {
-    mockData = [
-      { "id": "1",
-        "name": "normal",
-        "pokemon": [
-          "16",
-          "17",
-          "18",
-          "19",
-          "20" ]
-      },
-    ]
-    window.fetch = jest.fn().mockImplementation( () => {
-      Promise.resolve( {
-        json: mockData
-      })
-    })
-
-    expect()
+    mockData = 
+          { "id": "1",
+            "name": "normal",
+            "pokemon": [
+              "16",
+              "17",
+              "18",
+              "19",
+              "20" ]
+          }
+  
   })
-})
+}) 
+
