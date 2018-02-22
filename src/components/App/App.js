@@ -7,16 +7,11 @@ import { addTypes } from '../../actions';
 import CardContainer from '../../containers/CardContainer/CardContainer'
 
 
-class App extends Component {
+export class App extends Component {
 
-constructor() {
-  super()
-}
-// we want to call the api to get types on on component did mount
-// then we want to async/await/ resolve the promises that we get/json/do the things to get our data in usable form
-// send types of pokemon in the store
-// pass down store through props
-// display pokemon types in connected components
+  constructor() {
+    super()
+  }
 
   componentDidMount = async () => {
     this.addPokeTypes();
@@ -34,7 +29,6 @@ constructor() {
       <div className='App'>
         <h1 className='header'> POKéDEX </h1>
         <CardContainer />
-        <FakeContainer />
       </div>
     );
   }

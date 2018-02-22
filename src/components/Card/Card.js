@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
+import './Card.css'
 
 class Card extends Component {
   constructor(){
@@ -8,9 +9,8 @@ class Card extends Component {
   }
   render() {
     return (
-      <div>
+      <div className= 'Card'>
       <h3> {this.props.name} </h3>
-      <p> info </p>
     </div>
     )
   }
