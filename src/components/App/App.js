@@ -3,7 +3,7 @@ import './App.css';
 import FakeContainer from '../../containers/FakeContainer/'
 import { getPokemonTypes } from '../../helper.js';
 import { connect } from 'react-redux';
-import { addType } from '../../actions';
+import { addTypes } from '../../actions';
 
 
 class App extends Component {
@@ -19,8 +19,8 @@ constructor() {
 
   componentDidMount = async () => {
     const pokeTypes = await getPokemonTypes();
-    console.log(this.props)
-    // this.props.addTypes(pokeTypes);
+    // console.log(this.props)
+    this.props.addPokeTypes(pokeTypes);
   }
 
   render() {
@@ -36,8 +36,8 @@ constructor() {
 
 // const mapStateToProps = ({ type }) => ({ type });
 
-const mapDispatchToProps = dispatch => (
-  { addTypes: (pokeTypes) => dispatch(addTypes(pokeTypes)) }
-);
+export const mapDispatchToProps = dispatch => ({ 
+  addPokeTypes: pokeTypes => dispatch(addTypes(pokeTypes)) 
+});
 
 export default connect(null, mapDispatchToProps)(App);
